@@ -5,6 +5,8 @@ import { AppService } from '../service/app.service';
 import { Livros } from '../models/livro.model';
 import { LivrosController } from '../controllers/livros.controller';
 import { LivrosService } from '../service/livros.service';
+import 'dotenv/config';
+
 @Module({
   imports: [
     SequelizeModule.forRoot({
@@ -12,8 +14,8 @@ import { LivrosService } from '../service/livros.service';
       host: 'localhost',
       port: 3306,
       username: 'root',
-      password: 'matheus86063446@',
-      database: 'livraria',
+      password: process.env.PASSWORD,
+      database: process.env.DATABASE,
       autoLoadModels: true,
       synchronize: true,
     }),
